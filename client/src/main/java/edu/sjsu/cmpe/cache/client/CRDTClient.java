@@ -27,7 +27,7 @@ public class CRDTClient {
 		while(true) {
         	if(putStatus.size() < 3) {
         		try {
-        			System.out.println("Waiting for all get request to get processed...");
+        			System.out.println("Waiting for all put request to get processed...");
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -37,7 +37,7 @@ public class CRDTClient {
         		int fail = 0;
         		int pass = 0;
         		for(DistributedCacheService ser: servers) {
-        			System.out.println("putstatus for : "+ser.getCacheServerURL()+": "+putStatus.get(ser.getCacheServerURL()));
+        			System.out.println("put status for : "+ser.getCacheServerURL()+": "+putStatus.get(ser.getCacheServerURL()));
         			if(putStatus.get(ser.getCacheServerURL()).equalsIgnoreCase("fail")) 
             			fail++;
             		else

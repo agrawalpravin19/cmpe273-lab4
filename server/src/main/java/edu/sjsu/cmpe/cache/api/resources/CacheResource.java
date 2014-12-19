@@ -67,9 +67,9 @@ public class CacheResource {
     public Response delete(@PathParam("key") LongParam key) {
         boolean status = cache.delete(key.get());
         if(status) {
-        	return Response.status(400).build();
+        	return Response.status(204).build();
         }     
-        return Response.status(204).build();
+        return Response.status(400).build();
     }
 
 }
